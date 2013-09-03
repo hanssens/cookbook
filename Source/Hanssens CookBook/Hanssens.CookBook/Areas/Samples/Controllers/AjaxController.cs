@@ -17,8 +17,13 @@ namespace Hanssens.CookBook.Areas.Samples.Controllers
             return View(model);
         }
 
+        [HttpPost]
         public ActionResult SavePartial(Customer model)
         {
+            // Just for this demo, add some validations here
+            if (String.IsNullOrEmpty(model.DisplayName))
+                ModelState.AddModelError("DisplayName", "Name is required");
+
             return PartialView("_EditCustomer", model);
         }
 

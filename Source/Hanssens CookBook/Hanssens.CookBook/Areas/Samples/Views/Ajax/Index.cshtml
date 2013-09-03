@@ -1,28 +1,56 @@
-﻿@{
+﻿@model Customer
+@{
     ViewBag.Title = "Create Customer Sample";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<a href="#edit-customer" role="button" data-toggle="modal" class="btn btn-primary pull-left">Edit Customer (in Modal)</a>
+<a href="#edit-customer" role="button" data-toggle="modal" class="btn btn-primary pull-left">Demo</a>
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm("SavePartial", "Ajax", FormMethod.Post))
+{
     @Html.AntiForgeryToken()
-    @Html.ValidationSummary()
-    <div id="edit-customer" class="modal hide fade">
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h3>Save and Store Partial</h3>
-        </div>
 
-        <div class="modal-body" id="edit-directory-listing-body">
-                @Html.Partial("_EditCustomer", Model.SelectedContract)
-        </div>
+    <div id="edit-customer" class="modal fade">
+        <div class="modal-dialog">
+        
+            <div class="modal-content">
+            
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Save and Return PartialView</h4>
+                </div>
+            
+                <div id="edit-customer-body" class="modal-body">
+                    @Html.Partial("_EditCustomer", Model)
+                </div>
 
-        <div class="modal-footer">
-            <button class="btn" data-dismiss="modal">Close</button>
-            <button class="btn btn-primary" type="submit">Save</button>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+
         </div>
     </div>
+
 }
+
+<script>
+    $(document).ready(function() {
+
+        // bind ajax call to form, on submit
+        $('form:first').submit(function() {
+            $.post(this.action, $(this).serialize(),
+                function(partialViewHtmlContent) {
+
+                    // update the body of the modal here, based on the partial view
+                    $('#edit-customer-body').html(partialViewHtmlContent);
+                }
+            );
+            return false;
+        });
+
+    });
+</script>     
 
 
