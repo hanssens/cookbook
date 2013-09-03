@@ -5,3 +5,8 @@
   padding: 40px 15px;
   text-align: center;
 }
+
+/** Validation and Input Errors */
+.input-validation-error, .field-validation-error {
+    color: red;
+}
