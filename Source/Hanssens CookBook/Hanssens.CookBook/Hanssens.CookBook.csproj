@@ -109,6 +109,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Areas\Samples\Controllers\AjaxController.cs" />
+    <Compile Include="Areas\Samples\Models\Customer.cs" />
     <Compile Include="Areas\Samples\SamplesAreaRegistration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -133,7 +134,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Samples\Models\" />
     <Folder Include="Areas\Samples\Views\Shared\" />
     <Folder Include="Models\" />
   </ItemGroup>
@@ -148,6 +148,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Samples\Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Samples\Views\Ajax\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Samples\Views\Ajax\tEST.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Samples\Views\Ajax\_EditCustomer.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
