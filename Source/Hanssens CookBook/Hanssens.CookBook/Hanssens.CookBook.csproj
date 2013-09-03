@@ -162,9 +162,6 @@
     <Content Include="Areas\Samples\Views\Ajax\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\Samples\Views\Ajax\tEST.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Areas\Samples\Views\Ajax\_EditCustomer.cshtml" />
   </ItemGroup>
   <PropertyGroup>
